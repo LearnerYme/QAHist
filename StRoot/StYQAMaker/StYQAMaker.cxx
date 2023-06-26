@@ -250,11 +250,6 @@ Int_t StYQAMaker::Init() {
         200, -2.0, 2.0, 
         200, 0.0, 4.0
     );
-    h2ProtonPtYeTOF = new TH2F(
-        "h2ProtonPtYeTOF", "Proton Acceptance w/ eTOF;y (proton);p_{T} [GeV/c];Counts", 
-        200, -2.0, 2.0, 
-        200, 0.0, 4.0
-    );
 
     #ifdef __WITH_EPD__
         hNEpdMipEast = new TH1F(
@@ -282,6 +277,11 @@ Int_t StYQAMaker::Init() {
             "h2ETofMass2VsNSigmaProton", "eTOF m^{2} v.s. n#sigma;m^{2} [GeV^{2}/c^{4}];n#sigma (proton);Counts", 
             100, -0.2, 2.3, 
             100, -10, 10
+        );
+        h2ProtonPtYeTOF = new TH2F(
+            "h2ProtonPtYeTOF", "Proton Acceptance w/ eTOF;y (proton);p_{T} [GeV/c];Counts", 
+            200, -2.0, 2.0, 
+            200, 0.0, 4.0
         );
     #endif
 
@@ -600,12 +600,13 @@ Int_t StYQAMaker::MakeEvent() {
         for (Int_t iHit=0; iHit<numberOfEpdHits; iHit++) {
             MakeEpdHits(iHit);
         }
-    #endif
-    hNEpdHitsEast->Fill(mNEpdHitsEast);
-    hNEpdHitsWest->Fill(mNEpdHitsWest);
 
-    pRunVsNEpdHitsEast->Fill(mRunId, mNEpdHitsEast);
-    pRunVsNEpdHitsWest->Fill(mRunId, mNEpdHitsWest);
+        hNEpdHitsEast->Fill(mNEpdHitsEast);
+        hNEpdHitsWest->Fill(mNEpdHitsWest);
+
+        pRunVsNEpdHitsEast->Fill(mRunId, mNEpdHitsEast);
+        pRunVsNEpdHitsWest->Fill(mRunId, mNEpdHitsWest);
+    #endif
 
     return kStOK;
 

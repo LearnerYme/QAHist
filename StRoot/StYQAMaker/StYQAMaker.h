@@ -158,7 +158,6 @@ class StYQAMaker : public StMaker {
         TH2F* h2BTofMass2VsNSigmaProton;
         TH2F* h2ProtonPtY;
         TH2F* h2ProtonPtYbTOF;
-        TH2F* h2ProtonPtYeTOF;
         
         #ifdef __WITH_EPD__
             TH1F* hNEpdMipEast;
@@ -169,6 +168,7 @@ class StYQAMaker : public StMaker {
             TH2F* h2RigiVsETof1OverBeta;
             TH2F* h2RigiVsETofMass2;
             TH2F* h2ETofMass2VsNSigmaProton;
+            TH2F* h2ProtonPtYeTOF;
         #endif
 
         // Profiles
