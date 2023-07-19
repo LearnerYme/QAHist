@@ -398,7 +398,6 @@ Int_t StYQAMaker::Finish() {
     h2BTofMass2VsNSigmaProton->Write();
     h2ProtonPtY->Write();
     h2ProtonPtYbTOF->Write();
-    h2ProtonPtYeTOF->Write();
 
 
     #ifdef __WITH_EPD__
@@ -409,6 +408,7 @@ Int_t StYQAMaker::Finish() {
     #ifdef __WITH_ETOF__
         h2RigiVsETof1OverBeta->Write();
         h2RigiVsETofMass2->Write();
+        h2ProtonPtYeTOF->Write();
     #endif
 
     // Profiles
